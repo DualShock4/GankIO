@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:textColor="#333333"
+        android:layout_margin="10dp"
+        android:id="@+id/desc"
+        android:textSize="18sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:textColor="#555555"
+        android:text="daimajia"
+        android:layout_margin="5dp"
+        android:layout_toLeftOf="@+id/time"
+        android:layout_below="@+id/desc"
+        android:id="@+id/author"
+        android:textSize="14sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:textColor="#555555"
+        android:text="2016.12.13"
+        android:layout_margin="5dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/desc"
+        android:id="@+id/time"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <!--"_id": "56cc6d23421aa95caa707a69",-->
+    <!--"createdAt": "2015-08-06T07:15:52.65Z",-->
+    <!--"desc": "\u7c7b\u4f3cLink Bubble\u7684\u60ac\u6d6e\u5f0f\u64cd\u4f5c\u8bbe\u8ba1",-->
+    <!--"publishedAt": "2015-08-07T03:57:48.45Z",-->
+    <!--"type": "Android",-->
+    <!--"url": "https://github.com/recruit-lifestyle/FloatingView",-->
+    <!--"used": true,-->
+    <!--"who": "mthli"-->
+</RelativeLayout>
