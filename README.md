@@ -6,7 +6,8 @@ android开发新手使用gank.io接口写的练手app    
 <div align=center>         
 <img src="https://static.pgyer.com/app/qrcode/SHJf"/>           
 </div>          
-<div align=center>                
+<div align=center>       
+                    
 截图             
 </div>        
 <div align=center>         
