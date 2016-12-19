@@ -1,6 +1,7 @@
 package dualshock.gabriel.gankio.ui.activity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.PixelFormat;
 import android.net.Uri;
 import android.os.Bundle;
@@ -30,6 +31,7 @@ public class WebActivity extends BaseActivity {
     ProgressBar progressBar;
     private int page = 0;
     private String url;
+    private boolean isLoading = false;
 
     @Override
     protected int getLayoutId() {
@@ -108,12 +110,32 @@ public class WebActivity extends BaseActivity {
     private class MyWebClient extends WebViewClient{
         @Override
         public boolean shouldOverrideUrlLoading(WebView webView, String s) {
-            url = s;
-            webView.loadUrl(s);
-            page++;
+            if( s.startsWith("http:") || s.startsWith("https:") ) {
+                url = s;
+                webView.loadUrl(s);
+                page++;
+                return true;
+            }
+            try{
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(s));
+                startActivity( intent );
+            }catch (Exception e){
+                e.printStackTrace();
+            }
             return true;
         }
 
+        @Override
+        public void onPageStarted(WebView webView, String s, Bitmap bitmap) {
+            isLoading = true;
+            super.onPageStarted(webView, s, bitmap);
+        }
+
+        @Override
+        public void onPageFinished(WebView webView, String s) {
+            isLoading = false;
+            super.onPageFinished(webView, s);
+        }
     }
 
     private class MyChromeClient extends WebChromeClient {
@@ -133,6 +155,9 @@ public class WebActivity extends BaseActivity {
         if (page > 0) {
             webView.goBack();
             page--;
+            if (isLoading) {
+                webView.stopLoading();
+            }
             return;
         }
         super.onBackPressed();
