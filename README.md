@@ -1,5 +1,5 @@
 # GankIO
-android开发新手使用gank.io接口写的练手app       
+使用gank.io接口写的app       
 <div align=center>
 下载地址          
 </div>        
